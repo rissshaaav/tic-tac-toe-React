@@ -1,11 +1,12 @@
 import './App.css';
 import MainScreen from './Components/MainScreen/MainScreen';
-import {Circle, Cross} from './Components/Marks/Marks';
+import PickYourSide from './Components/PickYourSide/PickYourSide';
 
 function App() {
   return (
     <div className="App">
-      <MainScreen/>
+      {/* <MainScreen/> */}
+      <PickYourSide/>
     </div>
   );
 }
