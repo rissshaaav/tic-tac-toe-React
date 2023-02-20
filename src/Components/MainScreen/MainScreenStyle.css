@@ -8,11 +8,11 @@
     width: 100vw;
 }
 .label{
+    position: relative;
     display: flex;
     justify-content: center;
-    width: 100%;
+    max-width: 80%;
     margin-top: 50px;
-    /* border: solid; */
 }
 .label-item{
     display: inline-block;
@@ -21,27 +21,30 @@
     width: 60px;
     height: 60px;
     text-align: center;
-    /* border: white solid; */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     background-color: rgb(219, 248, 255);
     box-shadow: inset 0px 5px 15px  #fff;
+    font-weight: 800;
+    font-size: xx-large;
 
 }
 .label-letter-item{
+    width: fit-content;
     background: linear-gradient(#6c7cfc, #21b4fc ,#04ccfc);
     background-clip: text;
     color: transparent;
-    font-weight: 800;
-    font-size: xx-large;
+    
 }
 .toe{
-    position: relative;
-    bottom: 40%;
-    right: 10%;
-    transform: rotate(30deg) ;
+    font-weight: 900;
+    font-size: 40px;
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    transform: rotate(45deg) ;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
 }
