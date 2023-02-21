@@ -2,7 +2,7 @@ import React from 'react'
 import './PickYourSide.css'
 import {Cross, Circle} from '../Marks/Marks';
 
-const PickYourSide = () => {
+const PickYourSideScreen = () => {
   return (
     <div className='pickYourSide'>
       <div id='pickYourSide'>
@@ -14,4 +14,4 @@ const PickYourSide = () => {
   )
 }
 
-export default PickYourSide
+export default PickYourSideScreen
