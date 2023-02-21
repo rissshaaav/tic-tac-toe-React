@@ -5,9 +5,11 @@ import {Cross, Circle} from '../Marks/Marks';
 const PickYourSide = () => {
   return (
     <div className='pickYourSide'>
-      <h2>Pick Your Side</h2>
-      <div><Circle/></div>
-      <div><Cross/></div>
+      <div id='pickYourSide'>
+        <h1>Pick Your Side</h1>
+          <div className='sides'><Circle/></div>
+          <div className='sides'><Cross/></div>
+      </div>
     </div>
   )
 }

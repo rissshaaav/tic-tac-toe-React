@@ -1,0 +1,25 @@
+.pickYourSide{
+    height: 100vh;
+    background: linear-gradient(#6c7cfc, #21b4fc ,#04ccfc);
+    display: grid;
+    grid-template-areas: "." "item";
+    grid-template-columns: auto;
+    grid-template-rows: 30px auto;
+}
+#pickYourSide{
+    grid-area: item;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+}
+h1{
+    color: white;
+    font-size: 40px;
+}
+.sides{
+    background-color: white;
+    border-radius: 50%;
+    padding: 30px;
+}

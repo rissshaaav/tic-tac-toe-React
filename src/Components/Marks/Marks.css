@@ -9,13 +9,8 @@
 .circle{
     width: fit-content;
     display: inline-block;
-    /* display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; */
 }
 .outerCircle, .innerCircle{
-    /* border: solid; */
     border-radius: 50%;
 }
 .outerCircle{
@@ -31,13 +26,6 @@
     width: var(--innerWidth);
     background: white;
 }
-/* .blurOfCircle{
-    background-color: #fdb863;
-    height: calc( var(--outerHeight) / 2);
-    width: calc( var(--outerWidth) / 2);
-    filter: blur(var(--blurOfCircle));
-    transform: translate(0, -35px) rotateX(45deg) rotateZ(45deg);
-} */
 
 
 .cross{
@@ -45,15 +33,15 @@
 }
 #cross {
     margin: auto;
-    width:100px;
-    height:100px;
+    width: var(--outerHeight);
+    height: var(--outerWidth);
     position:relative;
     display: inline-block;
 }
  #cross:before, #cross:after {
     content:"";
     position:absolute;
-    z-index:-2;
+    /* z-index:-2; */
     background: linear-gradient(#7bd9d7, #4281f8);
     transform: rotateZ(45deg);
 }
