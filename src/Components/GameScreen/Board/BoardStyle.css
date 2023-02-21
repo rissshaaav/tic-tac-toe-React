@@ -1,0 +1,28 @@
+:root{
+    --border-shorthand: thin solid #b3b4b4;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+.board{
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.br-r-b{
+    border-right: var(--border-shorthand);
+    border-bottom: var(--border-shorthand);
+}
+.br-b{
+    border-bottom: var(--border-shorthand);
+}
+.br-r{
+    border-right: var(--border-shorthand);
+}

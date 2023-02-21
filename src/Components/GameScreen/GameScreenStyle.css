@@ -1,0 +1,8 @@
+.gameScreen{
+    background: linear-gradient(#6c7cfc, #21b4fc ,#04ccfc);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

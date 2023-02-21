@@ -1,10 +1,10 @@
 import React from 'react'
 import './SquareStyle.css'
 
-const Square = () => {
+const Square = (props) => {
   return (
-    <div>
-      
+    <div className={`square ${props.className}`}>
+      {props.children}
     </div>
   )
 }

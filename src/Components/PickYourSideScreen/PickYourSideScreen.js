@@ -1,5 +1,5 @@
 import React from 'react'
-import './PickYourSide.css'
+import './PickYourSideScreen.css'
 import {Cross, Circle} from '../Marks/Marks';
 
 const PickYourSideScreen = () => {
