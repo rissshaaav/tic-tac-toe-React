@@ -1,0 +1,26 @@
+.score{
+    /* border: solid; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scoreSection{
+    margin-top: 15px;
+    font-size: x-large;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.scoreSection-item{
+    /* border: dotted; */
+    width: 50%;
+    text-align: center;
+}
+.right{
+    border-left: thin solid;
+}
+.left{
+    border-right: thin solid;
+}
