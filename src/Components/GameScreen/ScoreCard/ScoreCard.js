@@ -1,17 +1,17 @@
 import React from 'react'
 import './ScoreCardStyle.css'
 
-const ScoreCard = () => {
+const ScoreCard = (props) => {
   return (
     <div className='score'>
         <h1>Score</h1>
         <div className='scoreSection'>
             <div className='left scoreSection-item'>
-                <div>Rishav</div>
+                <div>{props.playerWithCross}</div>
                 <div>8</div>
             </div>
             <div className='right scoreSection-item'>
-                <div>Shreya</div>
+                <div>{props.playerWithCircle}</div>
                 <div>8</div>
             </div>
         </div>
