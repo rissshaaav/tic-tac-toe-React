@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './MainScreenStyle.css'
 import {AiOutlinePlayCircle} from 'react-icons/ai'
 import {FaStar, FaShareAlt, FaVolumeUp} from 'react-icons/fa'
 
 const MainScreen = () => {
+    const navigateToPickYourSideScreen = useNavigate();
   return (
     <div className='mainScreen'>
         <header className='label'>
@@ -16,7 +18,7 @@ const MainScreen = () => {
             <div className='toe label-item'><span className='label-letter-item'>Toe</span></div>
         </header>
 
-        <main>
+        <main onClick={()=> navigateToPickYourSideScreen('pickyourside')}>
             <AiOutlinePlayCircle size='120px' id='playButton'/>
         </main>
 

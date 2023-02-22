@@ -1,9 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Square from '../Square/Square'
 import './BoardStyle.css'
 import {Cross, Circle} from '../../Marks/Marks'
 
 const Board = () => {
+
+  let initialState = ["","","","","","","","",""];
+  const [gameState, setGameState] = useState(initialState);
+
+  const marker = () =>{
+    
+  }
+
   return (
     <div className='board'>  
       {/* row 1 */}
