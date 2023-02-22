@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Square from '../Square/Square'
 import './BoardStyle.css'
 import {Cross, Circle} from '../../Marks/Marks'
+import { currentPlayerContext } from '../GameScreen'
 
 const Board = ({playerWithCross, playerWithCircle}) => {
 
   const [gameState, setGameState] = useState(["","","","","","","","",""]);
   const [isPlayerWithCrossTurn, setIsPlayerWithCrossTurn] = useState(true);
   const [currentPlayer, setCurrentPlayer] = useState(playerWithCross);
+
+  const handleCurrentPlayerData = useContext(currentPlayerContext)
 
   const marks = {
     cross: {
@@ -26,8 +29,13 @@ const Board = ({playerWithCross, playerWithCircle}) => {
       newGameState[index] = isPlayerWithCrossTurn?marks.cross.mark:marks.circle.mark;
       return newGameState;
     })
+    // console.log(currentPlayer);
     setIsPlayerWithCrossTurn(!isPlayerWithCrossTurn);
-    setCurrentPlayer(isPlayerWithCrossTurn?marks.circle.player:marks.cross.player);
+    const temp = isPlayerWithCrossTurn?marks.circle.player:marks.cross.player;
+    setCurrentPlayer(temp);
+    // console.log(currentPlayer);
+    // console.log(isPlayerWithCrossTurn);
+    handleCurrentPlayerData(temp);
   }
 
   return (
@@ -46,6 +54,8 @@ const Board = ({playerWithCross, playerWithCircle}) => {
         <Square className='br-r' onClick={()=>marker(6)}>{gameState[6]}</Square>
         <Square className='br-r' onClick={()=>marker(7)}>{gameState[7]}</Square>
         <Square onClick={()=>marker(8)}>{gameState[8]}</Square>
+        {console.log('turn of '+currentPlayer)}
+    {console.log("is cross's turn? "+isPlayerWithCrossTurn)}
     </div>
   )
 }
