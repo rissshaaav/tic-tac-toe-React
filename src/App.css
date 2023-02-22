@@ -2,9 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
 }
 body{
-    font-family: 'Oswald', sans-serif;
+    background: linear-gradient(#6c7cfc, #21b4fc ,#04ccfc);;
+    
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
