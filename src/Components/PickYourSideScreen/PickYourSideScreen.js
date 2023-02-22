@@ -12,7 +12,6 @@ const PickYourSideScreen = () => {
   const handleSubmit = (event) =>{
     event.preventDefault();
     navigateToGame('/gamescreen', {state:{playerWithCircle, playerWithCross}});
-    console.log(playerWithCircle, playerWithCross)
   }
 
   return (

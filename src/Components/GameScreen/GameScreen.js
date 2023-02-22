@@ -4,6 +4,8 @@ import './GameScreenStyle.css';
 import Board from './Board/Board';
 import ScoreCard from './ScoreCard/ScoreCard';
 
+
+
 const GameScreen = () => {
 
   const location = useLocation();
@@ -13,9 +15,8 @@ const GameScreen = () => {
   return (
     <div className='gameScreen'>
         <h1>Shreya's turn</h1>
-        <Board/>
+        <Board playerWithCircle={playerWithCircle} playerWithCross={playerWithCross}/>
         <ScoreCard playerWithCircle={playerWithCircle} playerWithCross={playerWithCross}/>
-        {console.log(playerWithCircle, playerWithCross)}
     </div>
   )
 }
