@@ -1,10 +1,8 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './GameScreenStyle.css';
 import Board from './Board/Board';
 import ScoreCard from './ScoreCard/ScoreCard';
-
-export const currentPlayerContext = createContext();
 
 const GameScreen = () => {
 
@@ -30,13 +28,12 @@ const GameScreen = () => {
     <div className='gameScreen'>
         <h1>{`${currentPlayerData}'s turn`}</h1>
 
-        <currentPlayerContext.Provider value={handleCurrentPlayerData}>
-          <Board 
-          playerWithCircle={playerWithCircle} 
-          playerWithCross={playerWithCross}
-          handlePlayerWithCircleScoreValue= {handlePlayerWithCircleScoreValue}
-          handlePlayerWithCrossScoreValue= {handlePlayerWithCrossScoreValue}/>
-        </currentPlayerContext.Provider>
+        <Board 
+        playerWithCircle={playerWithCircle} 
+        playerWithCross={playerWithCross}
+        handleCurrentPlayerData={handleCurrentPlayerData}
+        handlePlayerWithCircleScoreValue= {handlePlayerWithCircleScoreValue}
+        handlePlayerWithCrossScoreValue= {handlePlayerWithCrossScoreValue}/>
 
         <ScoreCard 
         playerWithCircle={playerWithCircle} 

@@ -1,19 +1,17 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactDOMServer from 'react-dom/server';
 import Square from '../Square/Square'
 import './BoardStyle.css'
 import {Cross, Circle} from '../../Marks/Marks'
-import { currentPlayerContext } from '../GameScreen'
 
-const Board = ({playerWithCross, playerWithCircle, handlePlayerWithCircleScoreValue, handlePlayerWithCrossScoreValue}) => {
+
+const Board = ({playerWithCross, playerWithCircle, handleCurrentPlayerData, handlePlayerWithCircleScoreValue, handlePlayerWithCrossScoreValue}) => {
 
   const [gameState, setGameState] = useState(["","","","","","","","",""]);
   const [isPlayerWithCrossTurn, setIsPlayerWithCrossTurn] = useState(true);
   const [currentPlayer, setCurrentPlayer] = useState(playerWithCross);
   const [playerWithCircleScore, setPlayerWithCircleScore] = useState(0);
   const [playerWithCrossScore, setPlayerWithCrossScore] = useState(0);
-
-  const handleCurrentPlayerData = useContext(currentPlayerContext)
 
   const marks = {
     cross: {
@@ -36,7 +34,6 @@ const Board = ({playerWithCross, playerWithCircle, handlePlayerWithCircleScoreVa
       setIsPlayerWithCrossTurn(!isPlayerWithCrossTurn);
       const temp = isPlayerWithCrossTurn?marks.circle.player:marks.cross.player;
       setCurrentPlayer(temp);
-      handleCurrentPlayerData(temp);
     }
   }
 
@@ -61,6 +58,10 @@ const Board = ({playerWithCross, playerWithCircle, handlePlayerWithCircleScoreVa
   useEffect(()=>{
     checkWinner()
   }, [gameState])
+
+  useEffect(()=>{
+    handleCurrentPlayerData(currentPlayer);
+  }, [currentPlayer])
 
   useEffect(()=>{
     handlePlayerWithCircleScoreValue(playerWithCircleScore);
