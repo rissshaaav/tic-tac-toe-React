@@ -7,13 +7,22 @@ import ScoreCard from './ScoreCard/ScoreCard';
 export const currentPlayerContext = createContext();
 
 const GameScreen = () => {
+
+  const [playerWithCircleScoreValue, setPlayerWithCircleScoreValue] = useState(0);
+  const [playerWithCrossScoreValue, setPlayerWithCrossScoreValue] = useState(0);
   const location = useLocation();
   const playerWithCircle = location.state?.playerWithCircle || '';
   const playerWithCross = location.state?.playerWithCross || '';
-
   const [currentPlayerData, setCurrentPlayerData] = useState(playerWithCross);
   const handleCurrentPlayerData = (data) => {
     setCurrentPlayerData(data);
+  }
+
+  const handlePlayerWithCircleScoreValue = (value) =>{
+    setPlayerWithCircleScoreValue(value)
+  }
+  const handlePlayerWithCrossScoreValue = (value) =>{
+    setPlayerWithCrossScoreValue(value)
   }
 
 
@@ -22,10 +31,18 @@ const GameScreen = () => {
         <h1>{`${currentPlayerData}'s turn`}</h1>
 
         <currentPlayerContext.Provider value={handleCurrentPlayerData}>
-          <Board playerWithCircle={playerWithCircle} playerWithCross={playerWithCross}/>
+          <Board 
+          playerWithCircle={playerWithCircle} 
+          playerWithCross={playerWithCross}
+          handlePlayerWithCircleScoreValue= {handlePlayerWithCircleScoreValue}
+          handlePlayerWithCrossScoreValue= {handlePlayerWithCrossScoreValue}/>
         </currentPlayerContext.Provider>
 
-        <ScoreCard playerWithCircle={playerWithCircle} playerWithCross={playerWithCross}/>
+        <ScoreCard 
+        playerWithCircle={playerWithCircle} 
+        playerWithCross={playerWithCross}
+        playerWithCircleScoreValue={playerWithCircleScoreValue}
+        playerWithCrossScoreValue={playerWithCrossScoreValue}/>
     </div>
   )
 }

@@ -1,14 +1,17 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import ReactDOMServer from 'react-dom/server';
 import Square from '../Square/Square'
 import './BoardStyle.css'
 import {Cross, Circle} from '../../Marks/Marks'
 import { currentPlayerContext } from '../GameScreen'
 
-const Board = ({playerWithCross, playerWithCircle}) => {
+const Board = ({playerWithCross, playerWithCircle, handlePlayerWithCircleScoreValue, handlePlayerWithCrossScoreValue}) => {
 
   const [gameState, setGameState] = useState(["","","","","","","","",""]);
   const [isPlayerWithCrossTurn, setIsPlayerWithCrossTurn] = useState(true);
   const [currentPlayer, setCurrentPlayer] = useState(playerWithCross);
+  const [playerWithCircleScore, setPlayerWithCircleScore] = useState(0);
+  const [playerWithCrossScore, setPlayerWithCrossScore] = useState(0);
 
   const handleCurrentPlayerData = useContext(currentPlayerContext)
 
@@ -37,6 +40,36 @@ const Board = ({playerWithCross, playerWithCircle}) => {
     }
   }
 
+  const checkWinner = () =>{
+    const winPattern = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    for(let i = 0; i<winPattern.length; i++){
+      const [a,b,c] = winPattern[i];
+      const AgameState = ReactDOMServer.renderToString(gameState[a]);
+      const BgameState = ReactDOMServer.renderToString(gameState[b]);
+      const CgameState = ReactDOMServer.renderToString(gameState[c]);
+      if(AgameState && BgameState===AgameState && CgameState===AgameState){
+        if(AgameState===(ReactDOMServer.renderToString(marks.circle.mark))){
+          setPlayerWithCircleScore(prevState => prevState + 1);
+        }
+        else{
+          setPlayerWithCrossScore(prevState => prevState + 1);
+        }
+      }
+    }
+  }
+
+  useEffect(()=>{
+    checkWinner()
+  }, [gameState])
+
+  useEffect(()=>{
+    handlePlayerWithCircleScoreValue(playerWithCircleScore);
+  }, [playerWithCircleScore])
+
+  useEffect(()=>{
+    handlePlayerWithCrossScoreValue(playerWithCrossScore);
+  }, [playerWithCrossScore])
+
   return (
     <div className='board'>  
       {/* row 1 */}
@@ -53,8 +86,8 @@ const Board = ({playerWithCross, playerWithCircle}) => {
         <Square className='br-r' onClick={()=>marker(6)}>{gameState[6]}</Square>
         <Square className='br-r' onClick={()=>marker(7)}>{gameState[7]}</Square>
         <Square onClick={()=>marker(8)}>{gameState[8]}</Square>
-        {console.log('turn of '+currentPlayer)}
-    {console.log("is cross's turn? "+isPlayerWithCrossTurn)}
+        {console.log('circle score '+playerWithCircleScore)}
+        {console.log('cross score '+playerWithCrossScore)}
     </div>
   )
 }
