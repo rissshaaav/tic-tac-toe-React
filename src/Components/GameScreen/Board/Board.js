@@ -24,15 +24,17 @@ const Board = ({playerWithCross, playerWithCircle}) => {
   }
 
   const marker = (index) =>{
-    setGameState((prevState)=>{
-      const newGameState = [...prevState];
-      newGameState[index] = isPlayerWithCrossTurn?marks.cross.mark:marks.circle.mark;
-      return newGameState;
-    })
-    setIsPlayerWithCrossTurn(!isPlayerWithCrossTurn);
-    const temp = isPlayerWithCrossTurn?marks.circle.player:marks.cross.player;
-    setCurrentPlayer(temp);
-    handleCurrentPlayerData(temp);
+    if(gameState[index]===""){
+      setGameState((prevState)=>{
+        const newGameState = [...prevState];
+        newGameState[index] = isPlayerWithCrossTurn?marks.cross.mark:marks.circle.mark;
+        return newGameState;
+      })
+      setIsPlayerWithCrossTurn(!isPlayerWithCrossTurn);
+      const temp = isPlayerWithCrossTurn?marks.circle.player:marks.cross.player;
+      setCurrentPlayer(temp);
+      handleCurrentPlayerData(temp);
+    }
   }
 
   return (
