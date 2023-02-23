@@ -8,11 +8,11 @@ const ScoreCard = (props) => {
         <div className='scoreSection'>
             <div className='left scoreSection-item'>
                 <div>{props.playerWithCross}</div>
-                <div>8</div>
+                <div>{props.playerWithCrossScore}</div>
             </div>
             <div className='right scoreSection-item'>
                 <div>{props.playerWithCircle}</div>
-                <div>8</div>
+                <div>{props.playerWithCircleScore}</div>
             </div>
         </div>
     </div>

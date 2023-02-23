@@ -29,12 +29,9 @@ const Board = ({playerWithCross, playerWithCircle}) => {
       newGameState[index] = isPlayerWithCrossTurn?marks.cross.mark:marks.circle.mark;
       return newGameState;
     })
-    // console.log(currentPlayer);
     setIsPlayerWithCrossTurn(!isPlayerWithCrossTurn);
     const temp = isPlayerWithCrossTurn?marks.circle.player:marks.cross.player;
     setCurrentPlayer(temp);
-    // console.log(currentPlayer);
-    // console.log(isPlayerWithCrossTurn);
     handleCurrentPlayerData(temp);
   }
 

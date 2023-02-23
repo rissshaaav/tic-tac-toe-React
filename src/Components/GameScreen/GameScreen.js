@@ -11,7 +11,7 @@ const GameScreen = () => {
   const playerWithCircle = location.state?.playerWithCircle || '';
   const playerWithCross = location.state?.playerWithCross || '';
 
-  const [currentPlayerData, setCurrentPlayerData] = useState('First comes cross');
+  const [currentPlayerData, setCurrentPlayerData] = useState(playerWithCross);
   const handleCurrentPlayerData = (data) => {
     setCurrentPlayerData(data);
   }
