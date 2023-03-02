@@ -17,3 +17,5 @@ To run the game locally, clone the repository and run the following commands in 
 * cd tic-tac-toe-react
 * npm install
 * npm start
+
+# under development
