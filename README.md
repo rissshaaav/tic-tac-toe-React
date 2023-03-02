@@ -13,10 +13,8 @@ This game was created using React. The styling was done using CSS.
 ## Installation
 To run the game locally, clone the repository and run the following commands in your terminal:
 
-*bash
-*Copy code
-*cd tic-tac-toe-react
-*npm install
-*npm start
-Contributing
-Contributions to this game are welcome! If you have an idea for a feature or a bug fix, feel free to submit a pull request.
+* bash
+* Copy code
+* cd tic-tac-toe-react
+* npm install
+* npm start
